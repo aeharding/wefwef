@@ -1,5 +1,6 @@
 import { styled } from "@linaria/react";
 import { IonSpinner } from "@ionic/react";
+import { isUrlVideo } from "../../../helpers/url";
 
 const Container = styled.div`
   position: relative;
@@ -23,18 +24,23 @@ const OverlaySpinner = styled(IonSpinner)`
 
 interface PhotoPreviewProps {
   src: string;
+  isVideo?: boolean;
   loading: boolean;
-  onClick?: () => void;
 }
 
 export default function PhotoPreview({
   src,
+  isVideo,
   loading,
-  onClick,
 }: PhotoPreviewProps) {
   return (
     <Container>
-      <Img src={src} onClick={onClick} loadingImage={loading} />
+      <Img
+        src={src}
+        loadingImage={loading}
+        /* Just uploaded blob (can't detect type from url), or editing post w/ media lemmy url (can) */
+        as={isVideo || isUrlVideo(src) ? "video" : "img"}
+      />
       {loading && <OverlaySpinner />}
     </Container>
   );

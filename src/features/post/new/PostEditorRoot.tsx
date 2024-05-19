@@ -139,6 +139,7 @@ export default function PostEditorRoot({
   const [photoPreviewURL, setPhotoPreviewURL] = useState<string | undefined>(
     initialImage,
   );
+  const [isPreviewVideo, setIsPreviewVideo] = useState(false);
   const [photoUploading, setPhotoUploading] = useState(false);
 
   const router = useOptimizedIonRouter();
@@ -302,6 +303,7 @@ export default function PostEditorRoot({
 
   async function receivedImage(image: File) {
     setPhotoPreviewURL(URL.createObjectURL(image));
+    setIsPreviewVideo(image.type.startsWith("video/"));
     setPhotoUploading(true);
 
     let imageUrl;
@@ -334,6 +336,7 @@ export default function PostEditorRoot({
   function clearImage() {
     setPhotoUrl("");
     setPhotoPreviewURL(undefined);
+    setIsPreviewVideo(false);
   }
 
   async function fetchPostTitle() {
@@ -435,12 +438,12 @@ export default function PostEditorRoot({
                 <label htmlFor="photo-upload">
                   <IonItem>
                     <IonLabel color="primary">
-                      <CameraIcon icon={cameraOutline} /> Choose Photo
+                      <CameraIcon icon={cameraOutline} /> Choose Photo / Video
                     </IonLabel>
 
                     <HiddenInput
                       type="file"
-                      accept="image/*"
+                      accept="image/* video/*"
                       id="photo-upload"
                       onInput={(e) => {
                         const image = (e.target as HTMLInputElement).files?.[0];
@@ -456,6 +459,7 @@ export default function PostEditorRoot({
                     <PhotoPreview
                       src={photoPreviewURL}
                       loading={photoUploading}
+                      isVideo={isPreviewVideo}
                     />
                   </IonItem>
                 )}
