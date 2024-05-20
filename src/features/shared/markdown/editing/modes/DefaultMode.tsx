@@ -463,7 +463,7 @@ export default function DefaultMode({
               const image = (e.target as HTMLInputElement).files?.[0];
               if (!image) return;
 
-              const markdown = await uploadImage(image);
+              const markdown = await uploadImage(image, true);
 
               textareaRef.current?.focus();
               document.execCommand("insertText", false, markdown);
