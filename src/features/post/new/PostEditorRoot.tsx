@@ -178,6 +178,14 @@ export default function PostEditorRoot({
     nsfw,
   ]);
 
+  useEffect(() => {
+    return () => {
+      if (!photoPreviewURL) return;
+
+      URL.revokeObjectURL(photoPreviewURL);
+    };
+  }, [photoPreviewURL]);
+
   function canSubmit() {
     if (!title) return false;
 
@@ -436,13 +444,16 @@ export default function PostEditorRoot({
 
                     <HiddenInput
                       type="file"
-                      accept="image/*,video/*"
+                      accept="image/*,video/mp4"
                       id="photo-upload"
                       onInput={(e) => {
                         const image = (e.target as HTMLInputElement).files?.[0];
                         if (!image) return;
 
                         receivedImage(image);
+
+                        // Allow next upload attempt
+                        (e.target as HTMLInputElement).value = "";
                       }}
                     />
                   </IonItem>

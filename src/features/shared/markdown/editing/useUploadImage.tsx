@@ -34,6 +34,7 @@ export default function useUploadImage() {
           message: `Problem uploading image: ${message}. Please try again.`,
           color: "danger",
           fullscreen: true,
+          duration: 5_000,
         });
 
         throw error;
