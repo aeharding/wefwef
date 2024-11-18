@@ -18,7 +18,7 @@ import { PlainButton } from "#/features/shared/PlainButton";
 import { stopIonicTapClick } from "#/helpers/ionic";
 import { getVideoSrcForUrl } from "#/helpers/url";
 
-const Container = styled.div`
+const Container = styled.span`
   position: relative;
   overflow: hidden;
 
@@ -84,7 +84,7 @@ const VolumeButton = styled(PlainButton)`
   }
 `;
 
-const PlayOverlay = styled.div`
+const PlayOverlay = styled.span`
   position: absolute;
   inset: 0;
 

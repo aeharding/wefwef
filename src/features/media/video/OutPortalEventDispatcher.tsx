@@ -1,7 +1,7 @@
 import { styled } from "@linaria/react";
 import React, { MouseEvent, useEffect, useRef } from "react";
 
-const Container = styled.div`
+const Container = styled.span`
   flex: 1;
   display: flex;
   width: 100%;
