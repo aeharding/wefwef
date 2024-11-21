@@ -1,4 +1,5 @@
 import { useIonViewWillEnter } from "@ionic/react";
+import { css } from "@linaria/core";
 import { noop } from "es-toolkit";
 import {
   createContext,
@@ -13,6 +14,12 @@ import * as portals from "react-reverse-portal";
 
 import type Player from "./Player";
 import PortaledPlayer from "./PortaledPlayer";
+
+const portalNodeStyles = css`
+  flex: 1;
+  display: flex;
+  width: 100%;
+`;
 
 export default function VideoPortalProvider({
   children,
@@ -41,8 +48,8 @@ export default function VideoPortalProvider({
 
     const newRef = {
       sourceUid,
-      portalNode: portals.createHtmlPortalNode({
-        attributes: { style: "flex:1;display:flex;width:100%" },
+      portalNode: portals.createHtmlInlinePortalNode({
+        attributes: { className: portalNodeStyles },
       }),
     };
 

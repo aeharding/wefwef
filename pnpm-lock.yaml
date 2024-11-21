@@ -188,8 +188,8 @@ importers:
         specifier: ^9.1.2
         version: 9.1.2(@types/react@18.3.12)(react@0.0.0-experimental-b01722d5-20241114)(redux@5.0.1)
       react-reverse-portal:
-        specifier: ^2.1.2
-        version: 2.1.2(react-dom@0.0.0-experimental-b01722d5-20241114(react@0.0.0-experimental-b01722d5-20241114))(react@0.0.0-experimental-b01722d5-20241114)
+        specifier: link:../react-reverse-portal
+        version: link:../react-reverse-portal
       react-router:
         specifier: ^5.3.4
         version: 5.3.4(react@0.0.0-experimental-b01722d5-20241114)
@@ -4908,12 +4908,6 @@ packages:
   react-refresh@0.14.2:
     resolution: {integrity: sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==}
     engines: {node: '>=0.10.0'}
-
-  react-reverse-portal@2.1.2:
-    resolution: {integrity: sha512-li4puNtBmMMJhtI+IVxeSX0RvK1ft8qjPSbCih4OKQ/YUIcROc31Nmo22gv94hTx8EUfR7fzZY47RuZF2YRMdQ==}
-    peerDependencies:
-      react: ^16.0.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
 
   react-router-dom@5.3.4:
     resolution: {integrity: sha512-m4EqFMHv/Ih4kpcBCONHbkT68KoAeHN4p3lAGoNryfHi0dMy0kCzEZakiKRsvg5wHZ/JLrLW8o8KomWiz/qbYQ==}
@@ -11738,11 +11732,6 @@ snapshots:
       redux: 5.0.1
 
   react-refresh@0.14.2: {}
-
-  react-reverse-portal@2.1.2(react-dom@0.0.0-experimental-b01722d5-20241114(react@0.0.0-experimental-b01722d5-20241114))(react@0.0.0-experimental-b01722d5-20241114):
-    dependencies:
-      react: 0.0.0-experimental-b01722d5-20241114
-      react-dom: 0.0.0-experimental-b01722d5-20241114(react@0.0.0-experimental-b01722d5-20241114)
 
   react-router-dom@5.3.4(react@0.0.0-experimental-b01722d5-20241114):
     dependencies:

@@ -32,7 +32,7 @@ function PortaledVideo({ src, ref, ...props }: VideoProps) {
   );
 
   return (
-    <div style={props.style} className={props.className}>
+    <span style={props.style} className={props.className}>
       {portalNode ? (
         <portals.OutPortal<typeof Player>
           {...props}
@@ -40,6 +40,6 @@ function PortaledVideo({ src, ref, ...props }: VideoProps) {
           src={src}
         />
       ) : undefined}
-    </div>
+    </span>
   );
 }
